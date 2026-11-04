@@ -3,6 +3,8 @@ package es.deusto.ingenieria.prog3.playgol.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.*;
 
 import javax.swing.*;
@@ -162,7 +164,18 @@ public class VentanaPrincipal extends JFrame{
 	        	
 	        });
 	        
+	        // Listener: doble clic para modificar un torneo
+	        tabla.addMouseListener(new MouseAdapter() {
+	        	@Override
+	        	public void mouseClicked(MouseEvent e) {
+	        		if (e.getClickCount() == 2) {
+	        			btnModificar.doClick();
+	        		}
+	        	}
+	        });
 	        
+	        
+	
 	        //Acción: eliminar torneo
 	        btnEliminar.addActionListener(e -> {
 	        	int fila = tabla.getSelectedRow();
