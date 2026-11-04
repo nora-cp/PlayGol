@@ -3,6 +3,8 @@ package es.deusto.ingenieria.prog3.playgol.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.*;
@@ -108,7 +110,13 @@ public class VentanaPrincipal extends JFrame{
 	        
 	        DefaultTableModel modelo = new DefaultTableModel(datos, columnas);
 	        
-	        JTable tabla = new JTable(modelo);
+	        JTable tabla = new JTable(modelo) {
+	        	@Override 
+	        	public boolean isCellEditable(int fila, int columna) {
+	        		return false;
+	        	}
+	        };
+	        
 	        JScrollPane scroll = new JScrollPane(tabla);
 	        
 	        //Panel botones
@@ -116,7 +124,7 @@ public class VentanaPrincipal extends JFrame{
 	        
 	        JButton btnAñadir = new JButton("Añadir torneo");
 	        JButton btnEliminar = new JButton("Eliminar torneo");
-	        JButton btnModificar = new JButton("Modificar torneo");
+	        JButton btnModificar = new JButton(" Modificar torneo");
 
 	        botones.add(btnAñadir);
 	        botones.add(btnEliminar);
@@ -174,6 +182,16 @@ public class VentanaPrincipal extends JFrame{
 	        	}
 	        });
 	        
+	        
+	        //Listener: tecla Delete para quitar la seleccion
+	        tabla.addKeyListener(new KeyAdapter() {
+	        	@Override
+	        	public void keyPressed(KeyEvent e) {
+	        		if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+	        			btnEliminar.doClick();
+	        		}
+	        	}
+			});
 	        
 	
 	        //Acción: eliminar torneo
