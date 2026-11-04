@@ -173,7 +173,7 @@ public class VentanaPrincipal extends JFrame{
 	        				this, "¿Estas seguro de que quieres eliminar este torneo?",
 	        				"Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 	        		
-	        		if (respuesta == JOptionPane.YES_OPTION);{
+	        		if (respuesta == JOptionPane.YES_OPTION) {
 	        			modelo.removeRow(fila);
 	        		}	
 	        	
@@ -397,7 +397,15 @@ public class VentanaPrincipal extends JFrame{
 		    	 int fila = tabla.getSelectedRow();
 		        	
 		        	if (fila != -1) {
-		        		modelo.removeRow(fila);
+		        		
+		        		int respuesta = JOptionPane.showConfirmDialog(this, 
+			    				 "¿Estas seguro de que quieres eliminar este partido?", "Confirmar eliminación",
+			    				 JOptionPane.YES_NO_OPTION);
+			    		 
+			    		 if (respuesta == JOptionPane.YES_OPTION) {
+			    			 modelo.removeRow(fila);
+			    		 }
+			    		 
 		        	}else {
 		        		JOptionPane.showMessageDialog(this, "Selecciona un partido primero");
 		        	}
