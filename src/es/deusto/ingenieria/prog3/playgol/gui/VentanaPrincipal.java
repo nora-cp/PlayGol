@@ -92,7 +92,7 @@ public class VentanaPrincipal extends JFrame{
 
 	    	JPanel panel = new JPanel(new  BorderLayout(10,10));
 	    			    
-	    	JLabel encabezado = new JLabel("Gestion de torneos");
+	    	JLabel encabezado = new JLabel("Gestión de torneos");
 			encabezado.setFont(new Font("Arial", Font.BOLD, 24));
 			encabezado.setBorder(BorderFactory.createEmptyBorder(20,20,10,10));
 	    	
@@ -168,7 +168,15 @@ public class VentanaPrincipal extends JFrame{
 	        	int fila = tabla.getSelectedRow();
 	        	
 	        	if (fila != -1) {
-	        		modelo.removeRow(fila);
+	        		
+	        		int respuesta = JOptionPane.showConfirmDialog(
+	        				this, "¿Estas seguro de que quieres eliminar este torneo?",
+	        				"Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+	        		
+	        		if (respuesta == JOptionPane.YES_OPTION);{
+	        			modelo.removeRow(fila);
+	        		}	
+	        	
 	        	}else {
 	        		JOptionPane.showMessageDialog(this, "Selecciona un torneo primero");
 	        	}
@@ -198,7 +206,7 @@ public class VentanaPrincipal extends JFrame{
 		     JTable tabla = new JTable(modelo);
 		     JPanel panel = new JPanel(new BorderLayout(10,10));
 		     
-		     JLabel encabezado = new JLabel("Gestion de torneos");
+		     JLabel encabezado = new JLabel("Gestión de equipos");
 				encabezado.setFont(new Font("Arial", Font.BOLD, 24));
 				encabezado.setBorder(BorderFactory.createEmptyBorder(20,20,10,10));
 		    	
@@ -293,7 +301,7 @@ public class VentanaPrincipal extends JFrame{
 		     JTable tabla = new JTable(modelo);
 		     JPanel panel = new JPanel(new BorderLayout(10,10));
 		     
-		     JLabel encabezado = new JLabel("Gestion de torneos");
+		     JLabel encabezado = new JLabel("Gestión de partidos");
 			encabezado.setFont(new Font("Arial", Font.BOLD, 24));
 			encabezado.setBorder(BorderFactory.createEmptyBorder(20,20,10,10));
 		    	
