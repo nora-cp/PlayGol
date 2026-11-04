@@ -269,12 +269,20 @@ public class VentanaPrincipal extends JFrame{
 		     btnEliminar.addActionListener(e -> {
 		    	 
 		    	 int fila = tabla.getSelectedRow();
-		        	
-		        	if (fila != -1) {
-		        		modelo.removeRow(fila);
-		        	}else {
-		        		JOptionPane.showMessageDialog(this, "Selecciona un equipo primero");
-		        	}
+		    	 
+		    	 if (fila != -1) {
+		    		 
+		    		 int respuesta = JOptionPane.showConfirmDialog(this, 
+		    				 "¿Estas seguro de que quieres eliminar este equipo?", "Confirmar eliminación",
+		    				 JOptionPane.YES_NO_OPTION);
+		    		 
+		    		 if (respuesta == JOptionPane.YES_OPTION) {
+		    				 modelo.removeRow(fila);
+		    		 }
+		    		 
+		    	 }else {
+		        	JOptionPane.showMessageDialog(this, "Selecciona un equipo primero");
+		    	 }
 		        
 		     });
 		     
