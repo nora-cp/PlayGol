@@ -183,15 +183,15 @@ public class VentanaPrincipal extends JFrame{
 	        });
 	        
 	        
-	        //Listener: tecla Delete para quitar la seleccion
-	        tabla.addKeyListener(new KeyAdapter() {
-	        	@Override
-	        	public void keyPressed(KeyEvent e) {
-	        		if (e.getKeyCode() == KeyEvent.VK_DELETE) {
-	        			btnEliminar.doClick();
-	        		}
-	        	}
-			});
+//	        //Listener: tecla Delete para quitar la seleccion
+//	        tabla.addKeyListener(new KeyAdapter() {
+//	        	@Override
+//	        	public void keyPressed(KeyEvent e) {
+//	        		if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+//	        			btnEliminar.doClick();
+//	        		}
+//	        	}
+//			});
 	        
 	
 	        //Acción: eliminar torneo
