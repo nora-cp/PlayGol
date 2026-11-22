@@ -90,13 +90,23 @@ public class Partido {
 		this.jugado = jugado;
 	}
 
-	@Override
-	public String toString() {
-		return equipoLocal + " - " + equipoVisitante;
+	
+	
+	public void registrarResultado(int golesLocal, int golesVisitante) {
+		if (golesLocal < 0 || golesVisitante < 0) {
+			throw new IllegalArgumentException("Los goles no pueden ser negativos");
+		}
+		this.golesLocal = golesLocal;
+		this.golesVisitante = golesVisitante;
+		this.jugado = true;
 	}
 	
-	
-	
-	
-
+	@Override
+	public String toString() {
+		if (!jugado) {
+		return equipoLocal + " - " + equipoVisitante + " (Pentiente)";
+		}
+		
+		return equipoLocal + " " + golesLocal + " - " + golesVisitante + " " + equipoVisitante;
+	}
 }
