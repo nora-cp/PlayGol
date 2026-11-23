@@ -1,5 +1,7 @@
 package es.deusto.ingenieria.prog3.playgol.gui;
 
+import es.deusto.ingenieria.prog3.playgol.gui.renderer.RendererClasificacion;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -23,6 +25,8 @@ public class PanelClasificacion extends JPanel{
 		};
 		
 		tablaClasificacion = new JTable(new DefaultTableModel(null,columnas));
+		
+		tablaClasificacion.setDefaultRenderer(Object.class, new RendererClasificacion());
 		
 		JScrollPane scroll = new JScrollPane(tablaClasificacion);
 		
