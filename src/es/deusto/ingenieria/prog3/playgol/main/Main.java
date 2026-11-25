@@ -2,6 +2,7 @@ package es.deusto.ingenieria.prog3.playgol.main;
 
 import javax.swing.SwingUtilities;
 
+import es.deusto.ingenieria.prog3.playgol.gui.VentanaLogin;
 import es.deusto.ingenieria.prog3.playgol.gui.VentanaPrincipal;
 
 public class Main {
@@ -10,9 +11,9 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		SwingUtilities.invokeLater(() -> {
-			VentanaPrincipal ventana = new VentanaPrincipal();
+			VentanaLogin ventana = new VentanaLogin();
 			ventana.setVisible(true);
-		});
+		};)
 	}
 
 }
