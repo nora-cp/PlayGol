@@ -10,6 +10,7 @@ public class PanelPartidos extends JPanel{
 	
 	private JTable tablaPartidos;
 	private DefaultTableModel modelo;	
+	private static DefaultTableModel modeloCompartido;
 	
 	public PanelPartidos() {
 		
@@ -28,6 +29,8 @@ public class PanelPartidos extends JPanel{
 				return false;
 			}
 		};
+		
+		modeloCompartido = modelo;
 	
 		tablaPartidos = new JTable(modelo);
 		
@@ -112,7 +115,26 @@ public class PanelPartidos extends JPanel{
 		
 		//Eliminar
 		
-		
+		btnEliminar.addActionListener(e -> {
+			
+			int fila = tablaPartidos.getSelectedRow();
+			
+			if(fila == -1) {
+				JOptionPane.showMessageDialog(this, "Selecciona un partido");
+				return;
+			}
+			
+			 int respuesta = JOptionPane.showConfirmDialog(
+		                this,
+		                "¿Eliminar el partido seleccionado?",
+		                "Confirmar",
+		                JOptionPane.YES_NO_OPTION
+		            );
+			 
+			 if (respuesta == JOptionPane.YES_OPTION) {
+				 modelo.removeRow(fila);
+			 }
+		});
 		
 		
 		add(panelSuperior,BorderLayout.NORTH);
@@ -121,5 +143,8 @@ public class PanelPartidos extends JPanel{
 
 
 		
+	}
+	public static DefaultTableModel getModeloCompartido() {
+		return modeloCompartido;
 	}
 }
